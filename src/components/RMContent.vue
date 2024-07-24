@@ -16,11 +16,10 @@
     </div>
 
     <div
-      v-if="showOnlyFavorites"
-      class="cards favorite-cards"
+      class="cards"
     >
       <div
-        v-if="favorites.length <= 0"
+        v-if="showOnlyFavorites && favorites.length <= 0"
         class="col-span-3"
       >
         <img
@@ -34,24 +33,8 @@
         </div>
       </div>
 
-      <template v-else>
-        <rm-card
-          v-for="item in favorites"
-          :key="item.id"
-          :character="item"
-          :is-favorite="favorites.some(character => character.id === item.id)"
-          @marked-as-favorite="markAsFavorite"
-          @removed-from-favorites="markAsNonFavorite"
-        />
-      </template>
-    </div>
-
-    <div
-      v-else
-      class="cards"
-    >
       <rm-card
-        v-for="item in data.results"
+        v-for="item in localData"
         :key="item.id"
         :character="item"
         :is-favorite="favorites.some(character => character.id === item.id)"
@@ -60,7 +43,7 @@
       />
 
       <div
-        v-if="data?.info?.next"
+        v-if="!showOnlyFavorites && data?.info?.next"
         class="paginator-card next-card"
         @click="goNext"
       >
@@ -71,7 +54,7 @@
 
   <!-- Paginator -->
   <ul
-    v-if="!showOnlyFavorites"
+    v-if="!showOnlyFavorites && data?.info?.pages > 1"
     id="paginator"
   >
     <li
@@ -122,7 +105,7 @@
 <script>
 
 /* Vue features */
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs, watch } from 'vue'
 
 /* Custom components */
 import RMCard from './RMCard.vue'
@@ -146,13 +129,24 @@ export default {
   setup(props, context) {
     // Local state management
     const state = reactive({
+      localData: [],
       showOnlyFavorites: false,
       favorites: []
+    })
+
+    watch(() => props.data, (val) => {
+      state.localData = val.results
     })
 
     // Functions
     function toggleFavorites() {
       state.showOnlyFavorites = !state.showOnlyFavorites
+
+      if (state.showOnlyFavorites) {
+        state.localData = state.favorites
+      } else {
+        state.localData = props.data.results
+      }
     }
 
     function markAsFavorite(character) {
