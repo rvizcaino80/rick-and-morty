@@ -15,6 +15,7 @@ https://rvizcaino-rick-n-morty.netlify.app
 
 #### A destacar
 
+- Incluí una función de persistencia para que se recuerden los favoritos aunque se refresque la página.
 - Usé tailwind como mi framework css.
 - Agregué eslint (con reglas stylistic) para asegurar consistencia y calidad en mi código.
 - Agregué un archivo .env para configurar según ambiente y evitar tener información confidencial en el repo (lo incluí en el repo por facilidad).

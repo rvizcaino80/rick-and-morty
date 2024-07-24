@@ -101,6 +101,8 @@ export default {
       state.localData = val.results
     })
 
+    loadFavoritesFromLocalStorage()
+
     // Functions
     function toggleFavorites() {
       state.showOnlyFavorites = !state.showOnlyFavorites
@@ -112,12 +114,29 @@ export default {
       }
     }
 
+    function loadFavoritesFromLocalStorage() {
+      // Load or init favorites from local browser storage
+      if (localStorage.getItem('rick-n-morty-favorites')) {
+        state.favorites = JSON.parse(localStorage.getItem('rick-n-morty-favorites'))
+      } else {
+        updateFavoritesInLocalStorage()
+      }
+    }
+
     function markAsFavorite(character) {
       state.favorites.push(character)
+      updateFavoritesInLocalStorage()
     }
 
     function markAsNonFavorite(character) {
       state.favorites = state.favorites.filter((item) => item.id !== character.id)
+      state.localData = state.favorites
+      updateFavoritesInLocalStorage()
+    }
+
+    function updateFavoritesInLocalStorage() {
+      // Store favorites in browser for persistence
+      localStorage.setItem('rick-n-morty-favorites', JSON.stringify(state.favorites))
     }
 
     function goPrev() {
