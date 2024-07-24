@@ -5,6 +5,7 @@
   <rm-header
     ref="header"
     @search="search"
+    @clear-search="search"
   />
   <rm-menu @option-changed="menuOptionChanged" />
   <rm-content
