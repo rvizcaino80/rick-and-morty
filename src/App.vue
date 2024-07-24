@@ -10,6 +10,7 @@
   <rm-content
     :data="pageData"
     :current-page="currentPage"
+    @go-prev="goPrev"
     @go-next="goNext"
     @go-to="goTo"
   />
