@@ -4,8 +4,10 @@
   />
   <rm-header
     ref="header"
+    :is-dark-mode="isDarkMode"
     @search="search"
     @clear-search="search"
+    @toggle-dark-mode="onToggleDarkMode"
   />
   <rm-menu @option-changed="menuOptionChanged" />
   <rm-content
@@ -53,7 +55,8 @@ export default {
       currentGender: '',
       currentName: '',
       currentPhrase: '',
-      pageData: []
+      pageData: [],
+      isDarkMode: false
     })
 
     initData()
@@ -74,6 +77,16 @@ export default {
 
     function goTo(page) {
       load(state.currentGender, state.currentName, page)
+    }
+
+    function onToggleDarkMode() {
+      state.isDarkMode = !state.isDarkMode
+
+      if (state.isDarkMode) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
     }
 
     async function load(gender = null, name = null, page = 1) {
@@ -125,7 +138,8 @@ export default {
       search,
       goPrev,
       goNext,
-      goTo
+      goTo,
+      onToggleDarkMode
     }
   }
 }

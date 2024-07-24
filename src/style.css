@@ -12,7 +12,7 @@ rvizcaino@gmail.com
 @tailwind utilities;
 
 #app {
-  @apply flex flex-col min-h-screen;
+  @apply bg-white dark:bg-gray-900 flex flex-col min-h-screen;
 }
 
 .loading-animation-wrapper {
@@ -50,7 +50,7 @@ rvizcaino@gmail.com
 }
 
 #menu {
-  @apply h-[80px] bg-[#f2f2f2];
+  @apply h-[80px] bg-[#f2f2f2] dark:bg-gray-700 dark:text-white;
 
   ul {
     @apply max-w-[950px] mx-auto flex justify-between items-center;
@@ -66,14 +66,14 @@ rvizcaino@gmail.com
 }
 
 #content {
-  @apply py-10 flex-1 w-[950px] mx-auto;
+  @apply bg-transparent py-10 flex-1 w-[950px] mx-auto;
 
   .cards {
     @apply grid grid-cols-3 gap-6;
   }
 
   .favorites {
-    @apply inline-flex items-center space-x-2 mb-4 cursor-pointer;
+    @apply inline-flex items-center space-x-2 mb-4 cursor-pointer dark:text-white;
 
     > div {
       @apply rounded-full bg-[#f2f2f2] flex items-center justify-center w-[30px] h-[30px];
@@ -81,14 +81,14 @@ rvizcaino@gmail.com
   }
 
   .paginator-card {
-    @apply border border-gray-300 rounded-md w-full flex max-h-[140px] items-center justify-center cursor-pointer;
+    @apply border border-gray-300 dark:border-gray-600  dark:text-[#e6e6e6] dark:bg-gray-800 rounded-md w-full flex max-h-[140px] items-center justify-center cursor-pointer;
   }
 
   .card {
-    @apply z-10 border border-gray-300 rounded-md w-full flex max-h-[140px];
+    @apply z-10 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-md w-full flex max-h-[140px];
 
     > img {
-      @apply w-[140px] h-[140px] rounded-l-md;
+      @apply w-[140px] h-[138px] rounded-l-md;
     }
 
     .favorite-box {
@@ -99,7 +99,7 @@ rvizcaino@gmail.com
       @apply p-[15px];
 
       .status-specie {
-        @apply flex items-center space-x-1 text-[10px] text-[#4f4f4f] leading-tight max-w-[140px] text-ellipsis truncate;
+        @apply flex items-center space-x-1 text-[10px] text-[#4f4f4f] dark:text-[#e6e6e6] leading-tight max-w-[140px] text-ellipsis truncate;
 
         .ball {
           @apply w-[5px] h-[5px] rounded-full;
@@ -115,7 +115,7 @@ rvizcaino@gmail.com
       }
 
       .last-known-location {
-        @apply text-[12px] mb-[8px] text-black leading-tight max-w-[140px] text-ellipsis truncate;
+        @apply text-[12px] mb-[8px] text-black dark:text-[#e6e6e6] leading-tight max-w-[140px] text-ellipsis truncate;
       }
 
       .first-seen-title {
@@ -124,7 +124,7 @@ rvizcaino@gmail.com
 
       .first-seen,
       .episode {
-        @apply text-[12px] mb-[8px] text-black leading-tight max-w-[140px] text-ellipsis truncate;
+        @apply text-[12px] mb-[8px] text-black dark:text-[#e6e6e6] leading-tight max-w-[140px] text-ellipsis truncate;
       }
 
       .episode {
@@ -138,7 +138,7 @@ rvizcaino@gmail.com
   @apply flex items-center justify-center space-x-1 w-[950px] mx-auto flex-wrap mb-10;
 
   li {
-    @apply border border-gray-300 rounded-md p-1 text-sm w-[30px] h-[30px] leading-none flex items-center justify-center text-center cursor-pointer mb-1;
+    @apply border border-gray-300 dark:border-gray-700 dark:text-white rounded-md p-1 text-sm w-[30px] h-[30px] leading-none flex items-center justify-center text-center cursor-pointer mb-1;
   }
 
   li.active {
