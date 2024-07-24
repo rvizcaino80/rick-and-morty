@@ -20,3 +20,10 @@ https://rvizcaino-rick-n-morty.netlify.app
 - Agregué eslint (con reglas stylistic) para asegurar consistencia y calidad en mi código.
 - Agregué un archivo .env para configurar según ambiente y evitar tener información confidencial en el repo (lo incluí en el repo por facilidad).
 - Agregué una animación personalizada para la carga de información.
+
+#### Notas
+
+Mayormente por falta de tiempo no hice:
+
+- Testing.
+- El modal de detalle del personaje.
