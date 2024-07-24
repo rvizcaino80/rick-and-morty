@@ -1,0 +1,147 @@
+/* 
+Stylesheet by Rogers Vizcaino
+rvizcaino@gmail.com
+*/
+
+/* Monserrat Font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+  @apply flex flex-col min-h-screen;
+}
+
+.loading-animation-wrapper {
+  @apply z-50 fixed flex flex-col w-full h-screen items-center justify-center bg-[#02383C] bg-opacity-90;
+
+  p {
+    @apply w-[420px] leading-tight text-white text-lg text-center mt-1 font-semibold;
+  }
+}
+
+#header {
+  @apply h-[455px] bg-center bg-cover p-24;
+  background-image: url("/header-background.jpg");
+
+  .logo {
+    @apply w-[347px] h-auto mx-auto mb-[30px];
+  }
+
+  .search {
+    @apply flex items-center space-x-3 px-3 mx-auto w-[500px] bg-[#081F32] h-[60px] leading-[60px] border-2 border-white rounded-md;
+
+    input {
+      @apply w-full bg-transparent border-0 ring-0 focus:border-0 focus:ring-0 focus:outline-none text-[18px] text-white;
+    }
+  }
+}
+
+#footer {
+  @apply h-[142px] bg-center bg-cover p-16;
+  background-image: url("/footer-background.jpg");
+
+  p {
+    @apply text-center text-white font-semibold;
+  }
+}
+
+#menu {
+  @apply h-[80px] bg-[#f2f2f2];
+
+  ul {
+    @apply max-w-[950px] mx-auto flex justify-between items-center;
+
+    li {
+      @apply leading-[80px] border-b-2 border-transparent flex-1 text-center cursor-pointer;
+    }
+
+    li.active {
+      @apply border-[#34C759];
+    }
+  }
+}
+
+#content {
+  @apply py-10 flex-1 w-[950px] mx-auto;
+
+  .cards {
+    @apply grid grid-cols-3 gap-6;
+  }
+
+  .favorites {
+    @apply flex items-center space-x-2 mb-4 cursor-pointer;
+
+    > div {
+      @apply rounded-full bg-[#f2f2f2] flex items-center justify-center w-[30px] h-[30px];
+    }
+  }
+
+  .paginator-card {
+    @apply border border-gray-300 rounded-md w-full flex max-h-[140px] items-center justify-center cursor-pointer;
+  }
+
+  .card {
+    @apply z-10 border border-gray-300 rounded-md w-full flex max-h-[140px];
+
+    > img {
+      @apply w-[140px] h-[140px] rounded-l-md;
+    }
+
+    .favorite-box {
+      @apply cursor-pointer z-50 absolute left-[101px] bottom-[9px] rounded-full bg-[#f2f2f2] flex items-center justify-center w-[30px] h-[30px];
+    }
+
+    > div.info {
+      @apply p-[15px];
+
+      .status-specie {
+        @apply flex items-center space-x-1 text-[10px] text-[#4f4f4f] leading-tight max-w-[140px] text-ellipsis truncate;
+
+        .ball {
+          @apply w-[5px] h-[5px] rounded-full;
+        }
+      }
+
+      .name {
+        @apply text-[16px] mb-[8px] leading-tight max-w-[140px] text-ellipsis truncate;
+      }
+
+      .last-known-location-title {
+        @apply text-[10px] text-[#828282] leading-tight;
+      }
+
+      .last-known-location {
+        @apply text-[12px] mb-[8px] text-black leading-tight max-w-[140px] text-ellipsis truncate;
+      }
+
+      .first-seen-title {
+        @apply text-[10px] text-[#828282] leading-tight;
+      }
+
+      .first-seen,
+      .episode {
+        @apply text-[12px] mb-[8px] text-black leading-tight max-w-[140px] text-ellipsis truncate;
+      }
+
+      .episode {
+        @apply mb-0;
+      }
+    }
+  }
+}
+
+#paginator {
+  @apply flex items-center justify-center space-x-1 w-[950px] mx-auto flex-wrap mb-10;
+
+  li {
+    @apply border border-gray-300 rounded-md p-1 text-sm w-[30px] h-[30px] leading-none flex items-center justify-center text-center cursor-pointer mb-1;
+  }
+
+  li.active {
+    @apply bg-[#34C759] text-white font-semibold border-lime-900;
+  }
+}
