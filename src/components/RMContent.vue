@@ -5,7 +5,7 @@
       class="favorites inline-block"
       @click="toggleFavorites"
     >
-      <p>{{ showOnlyFavorites ? 'Ocultar' : 'Mostrar' }} favoritos</p>
+      <p>{{ showOnlyFavorites ? 'Ocultar' : 'Mostrar' }} favoritos <span v-if="favorites.length > 0">({{ favorites.length }})</span></p>
 
       <div>
         <img
