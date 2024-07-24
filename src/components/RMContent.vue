@@ -2,7 +2,7 @@
   <div id="content">
     <!-- Favorites -->
     <div
-      class="favorites"
+      class="favorites inline-block"
       @click="toggleFavorites"
     >
       <p>{{ showOnlyFavorites ? 'Ocultar' : 'Mostrar' }} favoritos</p>
@@ -98,6 +98,7 @@ export default {
     })
 
     watch(() => props.data, (val) => {
+      state.showOnlyFavorites = false
       state.localData = val.results
     })
 
