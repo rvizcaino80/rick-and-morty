@@ -20,6 +20,7 @@ https://rvizcaino-rick-n-morty.netlify.app
 - Filtrado por favoritos con persistencia en local storage.
 - Menú dinámico con opciones en un objeto tipo enum.
 - Wrapper personalizado para fetch con manejo de errores.
+- Modo Oscuro / Claro personalizado.
 - Para asegurar consistencia y calidad en el código agregué eslint (con reglas stylistic).
 - Archivo .env para configurar según ambiente y evitar tener información confidencial en el repo (lo incluí en el repo por facilidad).
 - Archivos de componentes .vue concisos con la menor cantidad de líneas posible.
